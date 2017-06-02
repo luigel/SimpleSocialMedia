@@ -7,14 +7,14 @@
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
 
-<context:component-scan base-package="com.luigel.spring.web.controllers">
+<context:component-scan base-package="com.luigel.spring.controllers">
 	</context:component-scan>
 	<mvc:annotation-driven></mvc:annotation-driven>
 
 	<mvc:resources location="/resources/" mapping="/static/**"></mvc:resources>
 	<bean id="messageSource"
 		class="org.springframework.context.support.ResourceBundleMessageSource">
-		<property name="basename" value="com.luigel.spring.web.messages.messages"></property>
+		<property name="basename" value="com.luigel.spring.messages.messages"></property>
 	</bean>
 
 	<bean id="tilesViewResolver"
