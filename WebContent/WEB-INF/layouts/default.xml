@@ -13,7 +13,9 @@
 
 	<definition name="index" extends="offers.base">
 		<put-attribute name="title" value="Offers Homepage"></put-attribute>
-		<put-attribute name="content" value="/WEB-INF/tiles/index.jsp"></put-attribute>
+		<put-attribute name="content" value="/WEB-INF/tiles/signup.jsp"></put-attribute>
 	</definition>
+	
+	
 
 </tiles-definitions>
