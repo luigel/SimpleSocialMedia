@@ -8,6 +8,7 @@
 	<enableImports><![CDATA[false]]></enableImports>
 	<configs>
 		<config>WebContent/WEB-INF/simpleSocialMedia-servlet.xml</config>
+		<config>src/com/luigel/spring/config/security-context.xml</config>
 	</configs>
 	<autoconfigs>
 	</autoconfigs>

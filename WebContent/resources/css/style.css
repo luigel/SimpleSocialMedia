@@ -352,3 +352,8 @@ small.text-muted {
  * end sign up style
  * --------------------------------------------------
  */
+ 
+ #div-checkbox {
+ 	position: relative;
+ 	top: 10px;
+ }
