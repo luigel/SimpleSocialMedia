@@ -4,6 +4,7 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DuplicateKeyException;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -11,7 +12,6 @@ import org.springframework.security.web.authentication.logout.SecurityContextLog
 import org.springframework.stereotype.Controller;
 import org.springframework.util.StringUtils;
 import org.springframework.validation.BindingResult;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -23,6 +23,11 @@ public class LoginController {
 	
 	private UsersService usersService;
 	
+	@Autowired
+	public void setUsersService(UsersService usersService) {
+		this.usersService = usersService;
+	}
+
 	@RequestMapping("/login")
 	public String showLogin() {
 		return "index";
@@ -44,29 +49,32 @@ public class LoginController {
 		// it's a good practice to show login screen again.
 	}
 	
-//	@RequestMapping(value = "/createaccount", method = RequestMethod.POST)
-//	public String createAccount(User user, BindingResult result) {
-//
-//		if (result.hasErrors()) {
-//			return "newaccount";
-//		}
-//
-//		user.setAuthority("ROLE_USER");
-//		user.setEnabled(true);
-//
-//		if (usersService.exists(user.getUsername())) {
-//			System.out.println("Caught Duplicate username");
-//			result.rejectValue("username", "DuplicateKey.user.username");
-//			return "newaccount";
-//		}
-//
-//		try {
-//			usersService.create(user);
-//		} catch (DuplicateKeyException e) {
-//			result.rejectValue("username", "DuplicateKey.user.username");
-//			return "newaccount";
-//		}
-//
-//		return "accountcreated";
-//	}
+	@RequestMapping(value = "/createaccount", method = RequestMethod.POST)
+	public String createAccount(User user, BindingResult result) {
+		
+		if (result.hasErrors()) {
+			System.out.println("Has errors");
+			return "index";
+		}
+
+		user.setAuthority("ROLE_USER");
+		user.setEnabled(true);
+		
+		System.out.println(user);
+
+		if (usersService.exists(user.getUsername())) {
+			System.out.println("Caught Duplicate username");
+			result.rejectValue("username", "DuplicateKey.user.username");
+			return "index";
+		}
+
+		try {
+			usersService.create(user);
+		} catch (DuplicateKeyException e) {
+			result.rejectValue("username", "DuplicateKey.user.username");
+			return "index";
+		}
+
+		return "accountcreated";
+	}
 }

@@ -21,12 +21,12 @@ public class User implements Serializable{
 	@Id
 	private String username;
 	private String password;
-	private String first_name;
-	private String middle_name;
-	private String last_name;
+	private String firstName;
+	private String middleName;
+	private String lastName;
 	private String email;
-	private String birthday;
-	private String image_url;
+//	private String birthday;
+//	private String image_url;
 	private String authority;
 	
 	private boolean enabled = false;
@@ -35,68 +35,34 @@ public class User implements Serializable{
 		
 	}
 	
-	public User(String username, String password, String first_name, String middle_name, String last_name, String email,
-			String birthday, String image_url,String authority, boolean enabled) {
+	
+public User(String username, String password, String firstName, String middleName, String lastName, String email,
+			String authority, boolean enabled) {
+		super();
 		this.username = username;
 		this.password = password;
-		this.first_name = first_name;
-		this.middle_name = middle_name;
-		this.last_name = last_name;
+		this.firstName = firstName;
+		this.middleName = middleName;
+		this.lastName = lastName;
 		this.email = email;
-		this.birthday = birthday;
-		this.image_url = image_url;
 		this.authority = authority;
 		this.enabled = enabled;
 	}
 
 
-	public String getFirst_name() {
-		return first_name;
-	}
-
-	public void setFirst_name(String first_name) {
-		this.first_name = first_name;
-	}
-
-	public String getMiddle_name() {
-		return middle_name;
-	}
-
-	public void setMiddle_name(String middle_name) {
-		this.middle_name = middle_name;
-	}
-
-	public String getLast_name() {
-		return last_name;
-	}
-
-	public void setLast_name(String last_name) {
-		this.last_name = last_name;
-	}
-
-	public String getBirthday() {
-		return birthday;
-	}
-
-	public void setBirthday(String birthday) {
-		this.birthday = birthday;
-	}
-
-	public String getImage_url() {
-		return image_url;
-	}
-
-	public void setImage_url(String image_url) {
-		this.image_url = image_url;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
+//	public User(String username, String password, String firstName, String middleName, String lastName, String email,
+//			String birthday, String image_url,String authority, boolean enabled) {
+//		this.username = username;
+//		this.password = password;
+//		this.firstName = firstName;
+//		this.middleName = middleName;
+//		this.lastName = lastName;
+//		this.email = email;
+//		this.birthday = birthday;
+//		this.image_url = image_url;
+//		this.authority = authority;
+//		this.enabled = enabled;
+//	}
 
 	public String getUsername() {
 		return username;
@@ -114,7 +80,54 @@ public class User implements Serializable{
 		this.password = password;
 	}
 
-	
+	public String getFirstName() {
+		return firstName;
+	}
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	public String getMiddleName() {
+		return middleName;
+	}
+
+	public void setMiddleName(String middleName) {
+		this.middleName = middleName;
+	}
+
+	public String getLastName() {
+		return lastName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+//	public String getBirthday() {
+//		return birthday;
+//	}
+//
+//	public void setBirthday(String birthday) {
+//		this.birthday = birthday;
+//	}
+//
+//	public String getImage_url() {
+//		return image_url;
+//	}
+//
+//	public void setImage_url(String image_url) {
+//		this.image_url = image_url;
+//	}
+
 	public String getAuthority() {
 		return authority;
 	}
@@ -131,24 +144,26 @@ public class User implements Serializable{
 		this.enabled = enabled;
 	}
 
+
 	@Override
 	public String toString() {
-		return "User [username=" + username + ", password=" + password + ", first_name=" + first_name + ", middle_name="
-				+ middle_name + ", last_name=" + last_name + ", email=" + email + ", birthday=" + birthday
-				+ ", image_url=" + image_url + ", enabled=" + enabled + "]";
+		return "User [username=" + username + ", password=" + password + ", firstName=" + firstName + ", middleName="
+				+ middleName + ", lastName=" + lastName + ", email=" + email + ", authority=" + authority + ", enabled="
+				+ enabled + "]";
 	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((birthday == null) ? 0 : birthday.hashCode());
+		result = prime * result + ((authority == null) ? 0 : authority.hashCode());
+//		result = prime * result + ((birthday == null) ? 0 : birthday.hashCode());
 		result = prime * result + ((email == null) ? 0 : email.hashCode());
 		result = prime * result + (enabled ? 1231 : 1237);
-		result = prime * result + ((first_name == null) ? 0 : first_name.hashCode());
-		result = prime * result + ((image_url == null) ? 0 : image_url.hashCode());
-		result = prime * result + ((last_name == null) ? 0 : last_name.hashCode());
-		result = prime * result + ((middle_name == null) ? 0 : middle_name.hashCode());
+		result = prime * result + ((firstName == null) ? 0 : firstName.hashCode());
+//		result = prime * result + ((image_url == null) ? 0 : image_url.hashCode());
+		result = prime * result + ((lastName == null) ? 0 : lastName.hashCode());
+		result = prime * result + ((middleName == null) ? 0 : middleName.hashCode());
 		result = prime * result + ((password == null) ? 0 : password.hashCode());
 		result = prime * result + ((username == null) ? 0 : username.hashCode());
 		return result;
@@ -163,11 +178,16 @@ public class User implements Serializable{
 		if (getClass() != obj.getClass())
 			return false;
 		User other = (User) obj;
-		if (birthday == null) {
-			if (other.birthday != null)
+		if (authority == null) {
+			if (other.authority != null)
 				return false;
-		} else if (!birthday.equals(other.birthday))
+		} else if (!authority.equals(other.authority))
 			return false;
+//		if (birthday == null) {
+//			if (other.birthday != null)
+//				return false;
+//		} else if (!birthday.equals(other.birthday))
+//			return false;
 		if (email == null) {
 			if (other.email != null)
 				return false;
@@ -175,25 +195,25 @@ public class User implements Serializable{
 			return false;
 		if (enabled != other.enabled)
 			return false;
-		if (first_name == null) {
-			if (other.first_name != null)
+		if (firstName == null) {
+			if (other.firstName != null)
 				return false;
-		} else if (!first_name.equals(other.first_name))
+		} else if (!firstName.equals(other.firstName))
 			return false;
-		if (image_url == null) {
-			if (other.image_url != null)
+//		if (image_url == null) {
+//			if (other.image_url != null)
+//				return false;
+//		} else if (!image_url.equals(other.image_url))
+//			return false;
+		if (lastName == null) {
+			if (other.lastName != null)
 				return false;
-		} else if (!image_url.equals(other.image_url))
+		} else if (!lastName.equals(other.lastName))
 			return false;
-		if (last_name == null) {
-			if (other.last_name != null)
+		if (middleName == null) {
+			if (other.middleName != null)
 				return false;
-		} else if (!last_name.equals(other.last_name))
-			return false;
-		if (middle_name == null) {
-			if (other.middle_name != null)
-				return false;
-		} else if (!middle_name.equals(other.middle_name))
+		} else if (!middleName.equals(other.middleName))
 			return false;
 		if (password == null) {
 			if (other.password != null)
@@ -207,5 +227,14 @@ public class User implements Serializable{
 			return false;
 		return true;
 	}
+//
+//	@Override
+//	public String toString() {
+//		return "User [username=" + username + ", password=" + password + ", firstName=" + firstName + ", middleName="
+//				+ middleName + ", lastName=" + lastName + ", email=" + email + ", birthday=" + birthday + ", image_url="
+//				+ image_url + ", authority=" + authority + ", enabled=" + enabled + "]";
+//	}
+	
+	
 	
 }

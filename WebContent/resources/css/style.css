@@ -306,7 +306,7 @@ small.text-muted {
  */
  
 .form-signup {
-	max-width: 330px;
+	max-width: 65%;
 	padding: 15px;
 	margin: 0 auto;
 }
@@ -347,6 +347,16 @@ small.text-muted {
 .form-signup #inputConfirmPassword {
 	margin-bottom: 10px;
 }
+
+
+
+.form-signup #inputPassword, #inputConfirmPassword {
+	position: relative;
+	right: 15px;
+	width: 100%;
+}
+
+
 
 /*
  * end sign up style

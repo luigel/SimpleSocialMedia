@@ -39,5 +39,7 @@
 		src="${pageContext.request.contextPath}/static/vendor/jquery/jquery-3.2.1.min.js"></script>
 	<script type="text/javascript"
 		src="${pageContext.request.contextPath}/static/vendor/bootstrap-3.3.7-dist/js/bootstrap.js"></script>
+	<script type="text/javascript"
+		src="${pageContext.request.contextPath}/static/vendor/BootstrapValidation/validator.min.js"></script>
 </body>
 </html>

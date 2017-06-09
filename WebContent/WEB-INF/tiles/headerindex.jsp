@@ -27,8 +27,6 @@
 			<!--  <div class="form-group" id="div-checkbox">
 				<label><input name="remember-me" class="form-control" type="checkbox">Remember me</label>
 			</div> -->
-			<input type="hidden" name="${_csrf.parameterName}"
-				value="${_csrf.token}" />
 			<button type="submit" name="submit" class="btn btn-default">Sign
 				In</button>
 		</form>
